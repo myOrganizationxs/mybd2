@@ -1,0 +1,282 @@
+<%
+        //se empieza a ver si se junta el jsp con el script
+        //busca si el primer nodo tiene un usuario
+        Vector<registro> regi = registro.buscarnodousu2();
+        variable = 0;
+        for (int x = 0; x < regi.size(); x++) 
+        {
+            if (Integer.parseInt(request.getParameter("idnodo")) == regi.get(x).getNodo_nodo2()) 
+            {
+                variable = 1;
+            }
+        }
+        if (variable == 1) 
+        {
+            //si primer nodo tiene usuario imprime este
+            registro myr = new registro();
+            myr.usuario1(Integer.parseInt(request.getParameter("idnodo")));
+            //if(Integer.parseInt(request.getParameter("idusuario2"))== myr.getIdusuario()){
+            //JOptionPane.showMessageDialog(null,request.getParameter("idusuario2")+"es igual a"+myr.getIdusuario());
+            //}
+        } 
+        //si no tiene imprime este
+        else 
+        {
+        }
+        //se crea la tabla de la lista
+        Vector<registro> reg = registro.buscarespecificarnodo(Integer.parseInt(request.getParameter("idorganizacion")), Integer.parseInt(request.getParameter("idnodo")));
+        String a = request.getParameter("NombreEmpresa");
+        int aaa = 0;
+        //revisa el arreglo
+        for (int i = 0; i < reg.size(); i++) 
+        {
+            ddd.setContador(i + 1);
+            ddd.setContador1(i + 1);
+            aaa = reg.get(i).getIdNodo();
+            //verifica si l nodo tiene hyper
+            ddd.hypervinculonodo(Integer.parseInt(request.getParameter("idorganizacion")), aaa);
+            //ddd.hyper verifica si tiene orbita si tiene
+            if (ddd.getVariable() == 1) 
+            {
+                variable = 0;
+                //verifica sy el nodo tiene usuario o no
+                for (int x = 0; x < regi.size(); x++) 
+                {
+                    if (reg.get(i).getIdNodo() == regi.get(x).getNodo_nodo2()) 
+                    {
+                        variable = 1;
+                    }
+                }
+                //si tiene cuenta imprime con todo y usuario 
+                if (variable == 1) 
+                {
+                    registro myr = new registro();
+                    myr.usuario1(reg.get(i).getIdNodo());
+                    //if(Integer.parseInt(request.getParameter("idusuario2"))== myr.getIdusuario()){
+                    //JOptionPane.showMessageDialog(null,request.getParameter("idusuario2")+"es igual a"+myr.getIdusuario());
+                    //}
+                } 
+                //si no solo imprime el nodo
+                else 
+                {
+                }
+            } 
+            //si no tiene orbita    
+            else 
+            {
+                variable = 0;
+                //llama al nodo sin orbita
+                for (int x = 0; x < regi.size(); x++) 
+                {
+                    //compara si tiene usuario
+                    if (reg.get(i).getIdNodo() == regi.get(x).getNodo_nodo2()) 
+                    {
+                        variable = 1;
+                    }
+                }
+                //si si tiene usuario lo muestra
+                if (variable == 1) 
+                {
+                    registro myr = new registro();
+                    myr.usuario1(reg.get(i).getIdNodo());
+                    // if(Integer.parseInt(request.getParameter("idusuario2"))== myr.getIdusuario()){
+                    //JOptionPane.showMessageDialog(null,request.getParameter("idusuario2")+"es igual a"+myr.getIdusuario());
+                    //}
+                } 
+                //si no muestra solo el nodo
+                else 
+                {
+                }
+            }
+        }
+%>
+
+    <table class="table table-striped">
+        <thead>
+        <th>ID nodo</th>
+        <th>NOdo Padre</th>
+        <th>Puesto</th>
+        <th>Id Usuario</th>
+        <th>Nombre</th>
+        <th>Apellido Paterno</th>
+        <th>Apellido Materno</th>
+        <th>Usuario</th>
+        <th>Contraseña</th>
+
+    </thead>
+
+    <%
+            //se empieza a ver si se junta el jsp con el script
+            //busca si el primer nodo tiene un usuario
+        Vector<registro> regi = registro.buscarnodousu2();
+        variable = 0;
+        for (int x = 0; x < regi.size(); x++) {
+            if (Integer.parseInt(request.getParameter("idnodo")) == regi.get(x).getNodo_nodo2()) {
+                variable = 1;
+            }
+        }
+        if (variable == 1) {
+    %>
+    <tr>
+        <%
+            //si primer nodo tiene usuario imprime este
+            registro myr = new registro();
+            myr.usuario1(Integer.parseInt(request.getParameter("idnodo")));
+        //if(Integer.parseInt(request.getParameter("idusuario2"))== myr.getIdusuario()){
+            //JOptionPane.showMessageDialog(null,request.getParameter("idusuario2")+"es igual a"+myr.getIdusuario());
+                    //}
+%>
+        <th><%=Integer.parseInt(request.getParameter("idnodo"))%></th>
+        <th><%=request.getParameter("nodopadre")%></th>
+        <th><%=request.getParameter("cargo")%></th>
+        <th><%=myr.getIdusuario()%></th>
+        <th><%=myr.getNombre()%></th>
+        <th><%=myr.getApellidopaterno()%></th>
+        <th><%=myr.getApellidomaterno()%></th>
+        <th><%=myr.getUsu()%></th>
+        <th><%=myr.getCon()%></th>
+    </tr>
+    <%
+                } 
+        //si no tiene imprime este
+                else {%>
+    <tr>
+        <th><%=Integer.parseInt(request.getParameter("idnodo"))%></th>
+        <th><%=request.getParameter("nodopadre")%></th>
+        <th><%=request.getParameter("cargo")%></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>              
+    <%}%>
+
+
+    <%
+        //se crea la tabla de la lista
+        Vector<registro> reg = registro.buscarespecificarnodo(Integer.parseInt(request.getParameter("idorganizacion")), Integer.parseInt(request.getParameter("idnodo")));
+        String a = request.getParameter("NombreEmpresa");
+        int aaa = 0;
+        //revisa el arreglo
+        for (int i = 0; i < reg.size(); i++) {
+            ddd.setContador(i + 1);
+            ddd.setContador1(i + 1);
+    %>             
+
+          <%
+            
+            aaa = reg.get(i).getIdNodo();
+            //verifica si l nodo tiene hyper
+            ddd.hypervinculonodo(Integer.parseInt(request.getParameter("idorganizacion")), aaa);%>
+    <%
+            //ddd.hyper verifica si tiene orbita si tiene
+            if (ddd.getVariable() == 1) {%>
+    <%
+        variable = 0;
+        //verifica sy el nodo tiene usuario o no
+        for (int x = 0; x < regi.size(); x++) 
+        {
+            if (reg.get(i).getIdNodo() == regi.get(x).getNodo_nodo2()) {
+                variable = 1;
+            }
+        }
+       //si tiene cuenta imprime con todo y usuario 
+        if (variable == 1) {
+    %>
+    <%
+        registro myr = new registro();
+        myr.usuario1(reg.get(i).getIdNodo());
+         //if(Integer.parseInt(request.getParameter("idusuario2"))== myr.getIdusuario()){
+        //JOptionPane.showMessageDialog(null,request.getParameter("idusuario2")+"es igual a"+myr.getIdusuario());
+        //}
+%>
+    <tr> 
+        <th> <a href="controlarnodousu2?nodousu=<%=request.getParameter("nodousu")%>&&idnodo=<%=reg.get(i).getIdNodo()%>&&idorganizacion=<%=request.getParameter("idorganizacion")%>&&nombreorg=<%=request.getParameter("nombreorg")%>&&nombreorg=<%=request.getParameter("nombreorg")%>&&nombreorg=<%=request.getParameter("nombreorg")%>&&usuario2=<%=request.getParameter("usuario2")%>&&am2=<%=request.getParameter("am2")%>&&ap2=<%=request.getParameter("ap2")%>&&idusuario2=<%=request.getParameter("idusuario2")%>"</a><%=reg.get(i).getIdNodo()%></th>
+        <th><%=reg.get(i).getIdPadre()%></th>
+        <th><%=reg.get(i).getPuesto()%></th>
+        <th><%=myr.getIdusuario()%></th>
+        <th><%=myr.getNombre()%></th>
+        <th><%=myr.getApellidopaterno()%></th>
+        <th><%=myr.getApellidomaterno()%></th>
+        <th><%=myr.getUsu()%></th>
+        <th><%=myr.getCon()%></th>
+
+    </tr>               
+    <%
+                } 
+            //si no solo imprime el nodo
+            else {%>
+    <tr> 
+        <th> <a href="controlarnodousu2?nodousu=<%=request.getParameter("nodousu")%>&&idnodo=<%=reg.get(i).getIdNodo()%>&&idorganizacion=<%=request.getParameter("idorganizacion")%>&&nombreorg=<%=request.getParameter("nombreorg")%>&&usuario2=<%=request.getParameter("usuario2")%>&&am2=<%=request.getParameter("am2")%>&&ap2=<%=request.getParameter("ap2")%>&&idusuario2=<%=request.getParameter("idusuario2")%>"</a><%=reg.get(i).getIdNodo()%></th>
+        <th><%=reg.get(i).getIdPadre()%></th>
+        <th><%=reg.get(i).getPuesto()%></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr> 
+        <%}
+                } 
+        //si no tiene orbita    
+        else {%>
+        <%
+            variable = 0;
+            //llama al nodo sin orbita
+            for (int x = 0; x < regi.size(); x++) {
+                //compara si tiene usuario
+                if (reg.get(i).getIdNodo() == regi.get(x).getNodo_nodo2()) {
+                    variable = 1;
+                }
+            }
+            //si si tiene usuario lo muestra
+            if (variable == 1) {
+        %>
+        <%
+            registro myr = new registro();
+            myr.usuario1(reg.get(i).getIdNodo());
+        // if(Integer.parseInt(request.getParameter("idusuario2"))== myr.getIdusuario()){
+            //JOptionPane.showMessageDialog(null,request.getParameter("idusuario2")+"es igual a"+myr.getIdusuario());
+            //}    
+
+        %>
+    <tr>
+        <th><%=reg.get(i).getIdNodo()%></th>
+        <th><%=reg.get(i).getIdPadre()%></th>
+        <th><%=reg.get(i).getPuesto()%></th>
+        <th><%=myr.getIdusuario()%></th>
+        <th><%=myr.getNombre()%></th>
+        <th><%=myr.getApellidopaterno()%></th>
+        <th><%=myr.getApellidomaterno()%></th>
+        <th><%=myr.getUsu()%></th>
+        <th><%=myr.getCon()%></th>
+    </tr>    
+    <%} 
+            //si no muestra solo el nodo
+            else {%>
+    <tr>
+        <th><%=reg.get(i).getIdNodo()%></th>
+        <th><%=reg.get(i).getIdPadre()%></th>
+        <th><%=reg.get(i).getPuesto()%></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <%  }
+        }
+    %>
+
+    <%
+                //ddd.setContador1(5);
+            //ddd.setContador(5);
+        }
+    %>
+
+</table>

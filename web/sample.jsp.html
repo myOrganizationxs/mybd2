@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<title>My first Three.js app</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<script src="js/three.min.js"></script>
+		<script src="js/OrbitControls.js"></script>
+		<script>
+
+		//Líneas para crear una escena y una cámara
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+			camera.position.z = 40;
+		//fin
+		
+			var controls = new THREE.OrbitControls( camera );
+	  		controls.addEventListener( 'change', renderer );
+
+		//Activar el motor gráfico del navegador Web (puede ser Canvas, WebGL, etc)
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+		//fin
+
+			var pointLight = new THREE.PointLight(0xFFFFFF);
+		    pointLight.position.set(0, 0, 250);
+		    scene.add(pointLight);
+
+		//Líneas para construir un objeto; hay tres métodos necesarios para construirlo: 
+		//geometry(si será una esfera, etc) 
+		//material(está muy obvio), 
+		//mesh(crea la malla donde cargar el objeto con su material). 
+		//EL método .add es para añadirlo a la escena
+			var central_geometry = new THREE.SphereGeometry( 5, 32, 32 );
+			var central_material = new THREE.MeshPhongMaterial( { color: 0xDF0101  } );
+			var central = new THREE.Mesh( central_geometry, central_material );
+			scene.add( central );
+
+			var sub_geometry = new THREE.SphereGeometry( 2, 20, 20 )
+			var sub_material = new THREE.MeshPhongMaterial( { color: 0x2ECCFA } );
+			var sub = new THREE.Mesh( sub_geometry, sub_material );
+			sub.position.x = 20;
+			scene.add( sub );
+			var t=0;
+
+			var sub2_geometry = new THREE.SphereGeometry( 2, 20, 20 )
+			var sub2_material = new THREE.MeshPhongMaterial( { color: 0x3ADF00 } ); //verde
+			var sub2 = new THREE.Mesh( sub2_geometry, sub2_material );
+			sub2.position.x = 20;
+			scene.add( sub2 );
+			var t2=30; //aquí está en 240
+
+			// var sub3_geometry = new THREE.SphereGeometry( 2, 20, 20 )
+			// var sub3_material = new THREE.MeshPhongMaterial( { color: 0xFFFF00 } ); //amarilla
+			// var sub3 = new THREE.Mesh( sub3_geometry, sub3_material );
+			// sub3.position.x = 20;
+			// scene.add( sub3 );
+			// var t3=60;
+		//fin
+
+		//Donde la magia sucede
+			var animate = function () {
+				requestAnimationFrame( animate );
+
+					sub.position.x = Math.sin(t*0.1)*30;
+					sub.position.z = Math.cos(t*0.1)*20;
+					t-=Math.PI/180*5;
+
+					sub2.position.x = Math.sin(t2*0.1)*30;
+					sub2.position.z = Math.cos(t2*0.1)*20;
+					t2-=Math.PI/180*5;
+
+					// sub3.position.x = Math.sin(t3*0.1)*30;
+					// sub3.position.z = Math.cos(t3*0.1)*20;
+					// t3-=Math.PI/180*5;
+
+				renderer.render(scene, camera);
+				controls.update();
+			};
+		//fin
+
+		//Color del fondo de la escena
+			renderer.setClearColor( 0x0A2A1B, 1); 
+			animate();
+		</script>
+	</body>
+</html>
