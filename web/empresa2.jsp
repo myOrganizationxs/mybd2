@@ -156,10 +156,12 @@
         <!--<img src="images/B-button.png" style="max-width: 75px; float: left;">-->
         <h1 id="trigger" style="display: inline-block; vertical-align: top;"><%=request.getParameter("nombreorg")%></h1>
 
-        <div class="globo" style="display: inline-block;  margin: 0; width:275px; background:black; box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); border-radius: 10px; float: right; margin-right: 2.6em;"><div class="frontal"></div><div class="mapfront"></div><div class="mapback"></div><div class="back"></div></div>
+        <div class="globo" style="display: inline-block;  margin: 0; width:275px; background:black; box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); border-radius: 10px; float: right; margin-right: 2.6em; position:static;"><div class="frontal"></div><div class="mapfront"></div><div class="mapback"></div><div class="back"></div></div>
         </div>
-         
-    <ul class="pagination" style="margin-top: 50px; margin-left: -75px;">       
+        <nav class="navbar navbar-inverse" style="display:inline-block; margin:0; width:859px; height:0%; background: black; box-shadow:0 0 10px 2px rgba(0, 0, 0, .5); border-radius: 10px 10px 0px 0px; position:static; margin-left:1.4em; ">
+            <div class="navbar-header-inverse">
+            <ul class=navbar-toggle" data-toggle="collapse"
+                            data-target=".navbar-ex1-collapse" >       
         <%
                 //ruta del nodo en el que se esta consultando
             ddd.setNodo5(Integer.parseInt(request.getParameter("idnodo")));
@@ -208,7 +210,7 @@
                 conteo++;
             }
         %>
-    <ol class="breadcrumb" style="border:#000; position:static; background: black; margin-left: 7em; border-radius: 5px; box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); " >
+    <ol class="breadcrumb navbar-header-inverse" style=" position:static; margin-left: 0em; background:black; border-radius:50px;" >
         <%
                 //ruta del nodo en el que se esta consultando           
             while (guardaco >= 0) {
@@ -229,6 +231,8 @@
             }
         %>
     </ul>
+            </div>  
+    </nav>
     <section>
 <style> 
     
@@ -239,8 +243,8 @@
         height: 65% !important; 
         position:static;
 	margin-left: 20px;
-        border-radius: 10px;
-        -webkit-box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5);
+        border-radius: 0px 0px 10px 10px;
+        
         box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5);
         
         
