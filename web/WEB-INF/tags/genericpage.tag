@@ -36,7 +36,7 @@
 
                         } else {
                     %>
-                    <img src="images/A-button.png" style="max-width: 35px; float: left;">
+                    <!--<img src="images/A-button.png" style="max-width: 35px; float: left;">-->
                     <p class="navbar-text">ELIPSO</p>  
                     <%}
                         }
