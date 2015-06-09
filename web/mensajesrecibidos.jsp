@@ -52,6 +52,8 @@
                     <th><%=regis.get(i).getRevocaciones()%></th>
                     <th><%=regis.get(i).getDiasrevocacion()%></th>
                      
+                    <%if(regis.get(i).getRevocaciones()<=2){%>
+                    
                     <th><form action="Posponer" method="post">
                             <input type="hidden" value="<%=regis.get(i).getMensaje()%>" name="idmsg">
                             <input type="hidden" value="<%=regis.get(i).getTp2()%>" name="tp2">
@@ -59,13 +61,19 @@
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                           
                         </select>
                             <input type="submit" value="Pedir mas tiempo" name="">
                         </form>
                     </th>
-                    <%}%>
+                    
+                    
+                    <%}
+                    else
+                    {%>
+                    <th>NO TIENES MAS REVOCACIONES</th>    
+                    <%}
+                    }%>
                     
                     <%if(regis.get(i).getPromesa()==2){%>                     
                     <th>rechazaste esta solicitud</th>
