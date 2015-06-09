@@ -40,6 +40,15 @@
                     <th><%=regis.get(i).getHoraentrega()%></th>
                     <th><%=regis.get(i).getTp2()%></th>
                     <th><%=regis.get(i).getTiemporest()%></th>
+                    <%if(regis.get(i).getPromesa()==0){%>
+                    <th><form action="Promesa" method="post">
+                            <input type="hidden" value="<%=regis.get(i).getMensaje()%>" name="idmsg">
+                            <input type="radio" name="Promesa" value="1">Si
+                            <input type="radio" name="Promesa" value="2">No
+                            <input type="submit" value="Aceptar" name="">
+                        </form></th>
+                    <%}%>
+                    <%if(regis.get(i).getPromesa()==1){%>
                     <th><%=regis.get(i).getRevocaciones()%></th>
                     <th><%=regis.get(i).getDiasrevocacion()%></th>
                      
@@ -56,8 +65,12 @@
                             <input type="submit" value="Pedir mas tiempo" name="">
                         </form>
                     </th>
-
-              
+                    <%}%>
+                    
+                    <%if(regis.get(i).getPromesa()==2){%>                     
+                    <th>rechazaste esta solicitud</th>
+                    <%}%>
+                    
                     </tr>
              <%}%>
                 

@@ -2115,6 +2115,41 @@ public class registro
              JOptionPane.showMessageDialog(null, "error de conexion "+e);
         }
     }
+    public void promesasi(int parametro1)//update organizacion set estadoorg=2 where idOrganizacion=1
+    {
+        Conexion myc = new Conexion();
+        Connection reg=myc.conexion();//
+        String sql="update mensajes set promesa=1 where idmensajes="+parametro1+"";
+        
+        try
+        {
+            PreparedStatement pst=reg.prepareStatement(sql);
+            pst.executeUpdate();
+            //JOptionPane.showMessageDialog(null,"La empresa Esta dada de baja");
+        }
+        catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(null, "error de conexion "+e);
+        }
+    }
+    
+    public void promesano(int parametro1)//update organizacion set estadoorg=2 where idOrganizacion=1
+    {
+        Conexion myc = new Conexion();
+        Connection reg=myc.conexion();//
+        String sql="update mensajes set promesa=2 where idmensajes="+parametro1+"";
+        
+        try
+        {
+            PreparedStatement pst=reg.prepareStatement(sql);
+            pst.executeUpdate();
+            //JOptionPane.showMessageDialog(null,"La empresa Esta dada de baja");
+        }
+        catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(null, "error de conexion "+e);
+        }
+    }
    
     public String getNombreEmpresa() {
         return NombreEmpresa;
