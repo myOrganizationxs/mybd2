@@ -158,7 +158,7 @@
 
         <div class="globo" style="display: inline-block;  margin: 0; width:275px; background:black; box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); border-radius: 10px; float: right; margin-right: 2.6em; position:static;"><div class="frontal"></div><div class="mapfront"></div><div class="mapback"></div><div class="back"></div></div>
         </div>
-        <nav class="navbar navbar-inverse" style="display:inline-block; margin:0; width:859px; height:0%; background: black; box-shadow:0 0 10px 2px rgba(0, 0, 0, .5); border-radius: 10px 10px 0px 0px; position:static; margin-left:1.4em; ">
+        <nav class="navbar navbar-inverse" style="display:inline-block; margin:0; width:68%; height:0%; background: black; box-shadow:0 0 10px 2px rgba(0, 0, 0, .5); border-radius: 10px 10px 0px 0px; position:static; margin-left:1.4em; ">
             <div class="navbar-header-inverse" style="position:static;">
             <ul class=navbar-toggle" data-toggle="collapse"
                             data-target=".navbar-ex1-collapse" style="position:static" >       
@@ -241,7 +241,7 @@
 	/*margin-top: 15% !important;*/
 	width: 68% !important;
         height: 65% !important; 
-        position:static;
+        position:static !important;
 	margin-left: 20px;
         border-radius: 0px 0px 10px 10px;
         
