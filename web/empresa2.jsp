@@ -208,7 +208,7 @@
                 conteo++;
             }
         %>
-    <ol class="breadcrumb" style="border:#000;background: black; margin-left: 2em; border-radius: 5px; box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); " >
+    <ol class="breadcrumb" style="border:#000; position:static; background: black; margin-left: 7em; border-radius: 5px; box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); " >
         <%
                 //ruta del nodo en el que se esta consultando           
             while (guardaco >= 0) {
