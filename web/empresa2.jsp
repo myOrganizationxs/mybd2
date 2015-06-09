@@ -118,8 +118,8 @@ function abrirvande() {
 .globo {
   width: 100px;
   height: 100px;
-  position: relative;
-  margin-left: 70em;
+  position: static;
+  margin-left: 65em;
 }
 .frontal {
   width: 100px;
@@ -127,7 +127,7 @@ function abrirvande() {
   background: url(http://1.bp.blogspot.com/-R7NM2HBq--Q/UesCwsosv3I/AAAAAAAAKrs/ZZm2CMlqVWs/s1600/1.png);
   background-size: 100px 100px;
   z-index: 5;
-  position: absolute;
+  position: static;
   top: 0;
   left: 0;
 }
@@ -137,30 +137,40 @@ function abrirvande() {
   background: url(http://1.bp.blogspot.com/-Hke9nBhL3Gc/UesDBMdQypI/AAAAAAAAKr0/4d9J8v5i58o/s1600/2.png);
   background-size: 100px 100px;
   z-index: 2;
-  position: absolute;
-  top: 0;
+  position: relative;
+  top: -219;
   left: 0;
 }
-.mapfront, .mapback {
+.mapfront {
+  border-radius: 300px;
+  width: 83px;
+  height: 59px;
+  position: relative;
+  top: -79px;
+  left: -1px;
+  z-index: 4;
+}
+
+.mapback {
   border-radius: 300px;
   width: 60px;
   height: 60px;
-  position: absolute;
-  top: 20px;
-  left: 20px;
+  position: static;
+  top: -79px;
+  left: -1px;
   z-index: 4;
 }
 .mapfront {
   background: url(http://1.bp.blogspot.com/-M5AZ_16w8b4/UesDQ6r3miI/AAAAAAAAKr8/Sj0Tu25SgWA/s1600/3.png) repeat-x;
   -webkit-animation: mapfront_spin 15s linear infinite;
-  animation: mapfront_spin 15s linear infinite;
+  animation: mapfront_spin 20s linear infinite;
   background-size: 100px 100px;
 }
 .mapback {
   background: url(http://2.bp.blogspot.com/-PEUhx5zxLcg/UesDeRIwkmI/AAAAAAAAKsE/XvusGF7_Omc/s1600/4.png) repeat-x;
-  position: absolute;
+  position: static;
   -webkit-animation: mapback_spin 15s linear infinite;
-  animation: mapback_spin 15s linear infinite;
+  animation: mapback_spin 20s linear infinite;
   background-size: 100px 100px;
 }
 </style>
@@ -179,42 +189,7 @@ function abrirvande() {
 
         <div class="globo" style="display: inline-block;  margin: 0; width:260px; background:black; box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); border-radius: 10px; float: right; margin-right: 2em;"><div class="frontal"></div><div class="mapfront"></div><div class="mapback"></div><div class="back"></div></div>
         </div>
-          <!--  
-</div>
-        <table class="table table-striped">
-            <tr>
-                <th>Nombre Departamento</th>
-                <th>Misión</th>
-                <th>Visión</th>           
-            </tr>
-            <tr>
-                <th><%=request.getParameter("nombredep")%></th>
-                <th><%=request.getParameter("mision")%></th>
-                <th><%=request.getParameter("vision")%></th>           
-            </tr>
-        </table>
-        <br>
-        <table class="table table-striped">
-            <thead>
-            <th>Id objetivo</th>
-            <th>Nombre objetivo</th>
-            <th>Indicador</th>
-            <th>Tipo de Objetivo</th>
-        </thead>
-        <tr>
-            <%
-            //tabla de objetivos 
-                Vector<registro> regis = registro.buscarobjetivos(Integer.parseInt(request.getParameter("idorbita")));
-                for (int i = 0; i < regis.size(); i++) {%>
-            <th><%=regis.get(i).getIdObjetivos()%></th>
-            <th><%=regis.get(i).getNombre_objetivo()%></th>
-            <th><%=regis.get(i).getIndicadores()%></th> 
-            <th><%=regis.get(i).getTipobj()%></th>
-        </tr>
-        <%}%>
-
-    </table>
-    <br>-->
+         
     <ul class="pagination" style="margin-top: 50px; margin-left: -75px;">       
         <%
                 //ruta del nodo en el que se esta consultando
@@ -291,12 +266,14 @@ function abrirvande() {
         canvas {
 	background: black;
 	/*margin-top: 15% !important;*/
-	width: 72% !important;
+	width: 68% !important;
         height: 65% !important; 
+        position:static;
 	margin-left: 20px;
         border-radius: 10px;
         -webkit-box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5);
         box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5);
+        
         
 }
     
@@ -318,32 +295,6 @@ function abrirvande() {
 
 <link rel=stylesheet href="srcs/css/jquery-ui.css" />
 <link rel=stylesheet href="srcs/css/info.css"/>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$(canvas).bind("mousewheel", function() {
-			if ($.browser.webkit === true) {
-				return false;
-			}
-		});
-	})
-</script>
-<!-- <div id="infoButton"></div> 
-<div id="infoBox" title="Datos">
-	<p>Foto: <img src=""></p>
-       <p>Nombre:  </p>
-	<p>Apellidos: </p>
-	<p>Organización: </p>
-	<p>Puesto: </p>
-
-</div>-->
-
-<!-- <div style='position: absolute; padding-left: 10px; font-size:200%;'>
-	<strong>Eventos del mouse :</strong>
-<div id='logs'></div>
-</div> -->
-
-<!-- <div id="ThreeJS" style="z-index: 1; position: absolute; left:0px; top:0px"></div> -->
-
 
 
     
