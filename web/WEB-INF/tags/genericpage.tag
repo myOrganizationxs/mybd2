@@ -14,7 +14,7 @@
 
             <jsp:invoke fragment="header"/>
 
-            <nav class="navbar navbar-inverse" style="float:top;  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5);" role="navigation">
+            <nav class="navbar navbar-inverse" style="float:top; background: black !important; box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5);" role="navigation">
                 <div class="navbar-header-inverse">
                     <button type="button" class="navbar-toggle" data-toggle="collapse"
                             data-target=".navbar-ex1-collapse">

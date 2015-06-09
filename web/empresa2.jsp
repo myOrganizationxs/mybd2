@@ -43,37 +43,6 @@
     </head>
 
     <body>
-<script type="text/javascript">
-function abrir() { 
-    window.open('mensajes.jsp?idnodo=<%=request.getParameter("nodousu")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
-} 
-</script> 
-    </script>
-
-         <form>
-            <input type="button" value="Enviar mensaje" onclick="abrir()"/>
-        </form>
-    <script type="text/javascript">
-function abrirmen() { 
-    window.open('mensajesenviados.jsp?idnodo=<%=request.getParameter("nodousu")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
-} 
-</script> 
-    </script>
-
-         <form>
-            <input type="button" value="Mis mensajes" onclick="abrirmen()"/>
-        </form>
-<script type="text/javascript">
-function abrirvande() { 
-    window.open('mensajesrecibidos.jsp?idnodo=<%=request.getParameter("nodousu")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
-} 
-</script> 
-    </script>
-
-         <form>
-            <input type="button" value="Mensajes recibidos" onclick="abrirvande()"/>
-        </form>
-
         
 <style>
 @keyframes mapfront_spin {
@@ -163,14 +132,14 @@ function abrirvande() {
 .mapfront {
   background: url(http://1.bp.blogspot.com/-M5AZ_16w8b4/UesDQ6r3miI/AAAAAAAAKr8/Sj0Tu25SgWA/s1600/3.png) repeat-x;
   -webkit-animation: mapfront_spin 15s linear infinite;
-  animation: mapfront_spin 20s linear infinite;
+  animation: mapfront_spin 35s linear infinite;
   background-size: 100px 100px;
 }
 .mapback {
   background: url(http://2.bp.blogspot.com/-PEUhx5zxLcg/UesDeRIwkmI/AAAAAAAAKsE/XvusGF7_Omc/s1600/4.png) repeat-x;
   position: static;
   -webkit-animation: mapback_spin 15s linear infinite;
-  animation: mapback_spin 20s linear infinite;
+  animation: mapback_spin 35s linear infinite;
   background-size: 100px 100px;
 }
 </style>
@@ -187,7 +156,7 @@ function abrirvande() {
         <img src="images/B-button.png" style="max-width: 75px; float: left;">
         <h1 id="trigger" style="display: inline-block; vertical-align: top;"><%=request.getParameter("nombreorg")%></h1>
 
-        <div class="globo" style="display: inline-block;  margin: 0; width:260px; background:black; box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); border-radius: 10px; float: right; margin-right: 2em;"><div class="frontal"></div><div class="mapfront"></div><div class="mapback"></div><div class="back"></div></div>
+        <div class="globo" style="display: inline-block;  margin: 0; width:275px; background:black; box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); border-radius: 10px; float: right; margin-right: 2.6em;"><div class="frontal"></div><div class="mapfront"></div><div class="mapback"></div><div class="back"></div></div>
         </div>
          
     <ul class="pagination" style="margin-top: 50px; margin-left: -75px;">       
@@ -239,7 +208,7 @@ function abrirvande() {
                 conteo++;
             }
         %>
-    <ol class="breadcrumb" style="border:#000; border-radius: 5px; box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); " >
+    <ol class="breadcrumb" style="border:#000;background: black; margin-left: 2em; border-radius: 5px; box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); " >
         <%
                 //ruta del nodo en el que se esta consultando           
             while (guardaco >= 0) {
@@ -804,9 +773,9 @@ function rotar() {
 </script>
     
 
-               <aside style="margin-left: 10rem; position:static; display: inline-block; vertical-align: top;">
+               <aside style="margin-left: 7rem; position:static; display: inline-block; vertical-align: top;">
                       
-                   <div class="col-md-3" style="border:5px solid black; background:black; position:static; border-radius: 10px; height: 435px;width: 250;  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); overflow: auto !important;">
+                   <div class="col-md-3" style="border:5px  black; background:black; position:static; border-radius: 10px; height: 453px;width: 275px;  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); overflow: auto !important;">
 
                       <%--                 
 
@@ -870,7 +839,39 @@ while(abb>=0)
 </ul>
 </li>             
       
-               </aside>   
+               </aside> 
+<script type="text/javascript">
+function abrir() { 
+    window.open('mensajes.jsp?idnodo=<%=request.getParameter("nodousu")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
+} 
+</script> 
+    </script>
+
+         <form>
+            <input type="button" value="Enviar mensaje" onclick="abrir()"/>
+        </form>
+    <script type="text/javascript">
+function abrirmen() { 
+    window.open('mensajesenviados.jsp?idnodo=<%=request.getParameter("nodousu")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
+} 
+</script> 
+    </script>
+
+         <form>
+            <input type="button" value="Mis mensajes" onclick="abrirmen()"/>
+        </form>
+<script type="text/javascript">
+function abrirvande() { 
+    window.open('mensajesrecibidos.jsp?idnodo=<%=request.getParameter("nodousu")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
+} 
+</script> 
+    </script>
+
+         <form>
+            <input type="button" value="Mensajes recibidos" onclick="abrirvande()"/>
+        </form>
+
+
         <footer>
             
         </footer>
