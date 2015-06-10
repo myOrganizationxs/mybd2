@@ -133,7 +133,7 @@
   background: url(http://1.bp.blogspot.com/-M5AZ_16w8b4/UesDQ6r3miI/AAAAAAAAKr8/Sj0Tu25SgWA/s1600/3.png) repeat-x;
   -webkit-animation: mapfront_spin 15s linear infinite;
   animation: mapfront_spin 35s linear infinite;
-  background-size: 100px 100px;
+  background-size: 186px 67px;
 }
 .mapback {
   background: url(http://2.bp.blogspot.com/-PEUhx5zxLcg/UesDeRIwkmI/AAAAAAAAKsE/XvusGF7_Omc/s1600/4.png) repeat-x;
