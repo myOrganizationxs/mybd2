@@ -44,14 +44,14 @@
                     {
                         if(regis.get(i).getPromesa()==1)
                         {%>
-                        <th>Se comprometio</th>  
+                        <th>Si acepto</th>  
                         <%
                         }  
                         else
                         {
                             if(regis.get(i).getPromesa()==2)
                             {%>
-                            <th>No se compometio</th>    
+                            <th>No acepto</th>    
                             <%}
                         }
                     }
