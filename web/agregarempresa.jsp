@@ -26,7 +26,11 @@
                 <tr>
                     <td>Nombre de la empresa</td>
                     <td><input type="text" value="" name="Nombre"></td>
-                </tr>                         
+                </tr>
+                <tr>
+                    <td>Imagen de la empresa</td>
+                    <td><input type="file" value="" name="imgorg"></td>
+                </tr>
                     <td>Agregar empresa</td>
                     <td><input type="submit" value="Agregar Empresa" name="Agregar Empresa"></a></td>
             </table>

@@ -5,6 +5,8 @@
  */
 package modelo;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -170,19 +172,25 @@ public class registro
     //variables url
     private String ulturl;
     
-    public void altaempresa(String NombreEmpresa)
+    public void altaempresa(String NombreEmpresa,String ruta)
     {
         Conexion myc = new Conexion();
         Connection reg=myc.conexion();
         ultempresa();       
-        String sql="insert into organizacion values (?,?,?)";
+        String sql="insert into organizacion values (?,?,?,?)";
         
+        FileInputStream fis = null;
+        PreparedStatement ps = null;
+
         try
         {
+            File file = new File(ruta);
+            fis = new FileInputStream(file);
             PreparedStatement pst=reg.prepareStatement(sql);
             pst.setInt(1,getUltimaempresa());
             pst.setString(2,NombreEmpresa);
             pst.setInt(3,1);
+            pst.setBinaryStream(4,fis,(int)file.length());
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Empresa Creada Correctamente");
             altaprimernodo(getUltimaempresa());
