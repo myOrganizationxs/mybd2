@@ -100,7 +100,7 @@ public class ValidarCuenta extends HttpServlet {
                                  {
                                      
                                      //Si tiene un cargo asignado                                    
-                                     //JOptionPane.showMessageDialog(null,"Bienvenido a "+myr.getNombreEmpresa() +"");
+                                     JOptionPane.showMessageDialog(null,"Bienvenido a "+myr.getNodousu()+"");
                                      response.sendRedirect("controlarnodousu?alerta=1&&idorganizacion="+myr.getIdOrganizacion()+"&&primero=0&&nombreorg="+myr.getNombreEmpresa()+"&&usuario2="+myr.getNombre()+"&&ap2="+myr.getAp()+"&&am2="+myr.getAm()+"&&idusuario2="+myr.getIdusuario()+"&&nodousu="+myr.getNodousu());
                                      
                                  }

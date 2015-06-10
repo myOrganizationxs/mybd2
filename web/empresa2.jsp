@@ -44,6 +44,9 @@
 
     <body>
         
+                <div id="infoBox" title="Foto">
+	<figure><img src="images/Imagenbart.jpg"></figure>
+        </div>
 <style>
 @keyframes mapfront_spin {
   0% {
@@ -503,7 +506,7 @@ function init() {
 		sphere[<%=vari%>].scale.x = 16;
 		sphere[<%=vari%>].scale.y = 16;
 		sphere[<%=vari%>].scale.z = 16;
-		$("#infoBox").dialog("open");
+		
                 window.location = 'controlarnodousu2?nodousu=<%=request.getParameter("nodousu")%>&&idnodo=<%=reg.get(i).getIdNodo()%>&&idorganizacion=<%=request.getParameter("idorganizacion")%>&&nombreorg=<%=request.getParameter("nombreorg")%>&&nombreorg=<%=request.getParameter("nombreorg")%>&&nombreorg=<%=request.getParameter("nombreorg")%>&&usuario2=<%=request.getParameter("usuario2")%>&&am2=<%=request.getParameter("am2")%>&&ap2=<%=request.getParameter("ap2")%>&&idusuario2=<%=request.getParameter("idusuario2")%>';
                 
 	}, false)
@@ -562,7 +565,7 @@ function init() {
 		sphere[<%=vari%>].scale.x = 16;
 		sphere[<%=vari%>].scale.y = 16;
 		sphere[<%=vari%>].scale.z = 16;
-		$("#infoBox").dialog("open");
+		
                 window.location = 'controlarnodousu2?nodousu=<%=request.getParameter("nodousu")%>&&idnodo=<%=reg.get(i).getIdNodo()%>&&idorganizacion=<%=request.getParameter("idorganizacion")%>&&nombreorg=<%=request.getParameter("nombreorg")%>&&usuario2=<%=request.getParameter("usuario2")%>&&am2=<%=request.getParameter("am2")%>&&ap2=<%=request.getParameter("ap2")%>&&idusuario2=<%=request.getParameter("idusuario2")%>';
 	}, false)
         <%
