@@ -272,7 +272,8 @@
 
     
 <script>
-        <%int var=10;%>
+    //este esta modificado    
+    <%int var=10;%>
 	// standard global variables
 	var container, scene, camera, renderer, controls;
 	var keyboard = new THREEx.KeyboardState();
