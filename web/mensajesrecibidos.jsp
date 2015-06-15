@@ -45,8 +45,11 @@
                             <input type="hidden" value="<%=regis.get(i).getMensaje()%>" name="idmsg">
                             <input type="radio" name="Promesa" value="1">Si
                             <input type="radio" name="Promesa" value="2">No
+                            <input type="radio" name="Promesa" value="3">Si condicional
                             <input type="submit" value="Aceptar" name="">
-                        </form></th>
+
+                
+                            </form></th>
                     <%}%>
                     <%if(regis.get(i).getPromesa()==1){%>
                     <th><%=regis.get(i).getRevocaciones()%></th>

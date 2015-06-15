@@ -52,7 +52,7 @@ public class controlarnodousu extends HttpServlet {
                //JOptionPane.showMessageDialog(null,"Id: "+rgt.getIdnodo1()+" padre: "+rgt.getIdPadre()+" Organizacion: "+request.getParameter("idorganizacion"));
                rgt.empresanodoorbita(Integer.parseInt(request.getParameter("idorganizacion")),rgt.getIdnodo1());
                 // rgt.getIdNodo();
-               //JOptionPane.showMessageDialog(null,rgt.getIdpadre2()+rgt.getCargo2());
+               JOptionPane.showMessageDialog(null," nodo "+request.getParameter("nodousu"));
               rgt.setUlturl("empresa2.jsp?idnodo="+rgt.getIdnodo2()+"&&nodopadre="+rgt.getIdpadre2()+"&&cargo="+rgt.getCargo2()+"&&idorganizacion="+rgt.getIdorganizacion2()+"&&nombreorg="+rgt.getNombreorganizacion2()+"&&idorbita="+rgt.getIdorbita2()+"&&nombredep="+rgt.getNombredep2()+"&&mision="+rgt.getMision2()+"&&vision="+rgt.getVision2()+"&&posicion="+rgt.getPosicion2()+"&&usuario="+request.getParameter("usuario")+"&&am="+request.getParameter("am")+"&&ap="+request.getParameter("ap")+"&&idusuario="+request.getParameter("idusuario"));
                response.sendRedirect("empresa2.jsp?alerta=1&&idnodo="+rgt.getIdnodo2()+"&&nodopadre="+rgt.getIdpadre2()+"&&cargo="+rgt.getCargo2()+"&&idorganizacion="+rgt.getIdorganizacion2()+"&&nombreorg="+rgt.getNombreorganizacion2()+"&&idorbita="+rgt.getIdorbita2()+"&&nombredep="+rgt.getNombredep2()+"&&mision="+rgt.getMision2()+"&&vision="+rgt.getVision2()+"&&posicion="+rgt.getPosicion2()+"&&usuario2="+request.getParameter("usuario2")+"&&am2="+request.getParameter("am2")+"&&ap2="+request.getParameter("ap2")+"&&idusuario2="+request.getParameter("idusuario2")+"&&nodousu="+request.getParameter("nodousu"));
             //}
