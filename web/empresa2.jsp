@@ -272,7 +272,7 @@
 
     
 <script>
-    //este esta modificado    
+    //este esta modificado yeah    
     <%int var=10;%>
 	// standard global variables
 	var container, scene, camera, renderer, controls;
