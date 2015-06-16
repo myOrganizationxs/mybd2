@@ -61,9 +61,17 @@
                     <th><%=regis.get(i).getHoraentrega()%></th>
                     <th><%=regis.get(i).getTiemporest()%></th>
                     <th><%=regis.get(i).getDiasrevocacion()%></th>
+                 
+                <style>div.p1 { height: 50px; width: 100px; }</style>
+                <style>div.p2 { height: 50px; left: 0px; position: relative; top: -50px; width: 50px; }</style>
+                <style>img.pequeña{width: 50px; height: 50px;}</style>
+                <style>img.mediana{width: 400px; height: 50px;}</style>
+                <th><div class="p1"><img class="mediana"  src="images/descarga.png"></div>
+                <div class="p2"><img class="pequeña" src="images/esfera3.png"></div></th>
                     </tr>
              <%}%>
                 
             </table>
+             
     </body>
 </html>
