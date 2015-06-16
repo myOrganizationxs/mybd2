@@ -12,15 +12,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.JOptionPane;
 import modelo.registro;
 
 /**
  *
  * @author sergio
  */
-@WebServlet(name = "Mensajes", urlPatterns = {"/Mensajes"})
-public class Mensajes extends HttpServlet {
+@WebServlet(name = "MensajeExitoso", urlPatterns = {"/MensajeExitoso"})
+public class MensajeExitoso extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,11 +35,9 @@ public class Mensajes extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           //JOptionPane.showMessageDialog(null,"emisor "+request.getParameter("emisor")+"receptor "+request.getParameter("receptor")+"mensaje "+request.getParameter("msg")+"promesa null tiempo estimado "+request.getParameter("fecha")+"hora de envio now() hora recibido null nodo "+request.getParameter("emisor"));
-           registro myr = new registro();
-           myr.CrearMensaje(Integer.parseInt(request.getParameter("emisor")),Integer.parseInt(request.getParameter("receptor")),request.getParameter("msg"),request.getParameter("fecha"));
+            registro myr = new registro();
+           myr.estadomensa(Integer.parseInt(request.getParameter("idmsg")));
            response.sendRedirect("cerrar.jsp"); 
-                   
         }
     }
 

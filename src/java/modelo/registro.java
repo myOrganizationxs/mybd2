@@ -159,6 +159,9 @@ public class registro
     public int norevo;
     private String tp2;
     
+    private String diastranscu;
+    private int msjestado;
+    
     /*
      pro.mensaje(rs.getString(1));
                 pro.receptor(rs.getInt(3));
@@ -1980,7 +1983,7 @@ public class registro
         Connection reg=myc.conexion();
         
         int i = 0;//select *,datediff(tiempo_proceso,hora_envio) from mensajes where emisor=1;
-        String sql="select *,TIMESTAMPDIFF(day,hora_envio,tiempo_proceso),TIMESTAMPDIFF(day,tiempo_proceso,tiempo_proceso2) from mensajes where emisor='"+abc+"'";
+        String sql="select *,TIMESTAMPDIFF(day,now(),tiempo_proceso2),TIMESTAMPDIFF(day,hora_envio,tiempo_proceso2),TIMESTAMPDIFF(day,hora_envio,now()) from mensajes where emisor='"+abc+"'";
         try{
             PreparedStatement pst=reg.prepareStatement(sql);
             rs=pst.executeQuery();
@@ -1994,9 +1997,12 @@ public class registro
                 pro.setRevocaciones(rs.getInt(10));
                 pro.setHoraenvio(rs.getString(7));
                 pro.setHoraentrega(rs.getString(6));
-                pro.setDiasrevocacion(rs.getString(13));
-                pro.setTiemporest(rs.getString(12));
-                        
+                pro.setDiasrevocacion(rs.getString(14));
+                pro.setTiemporest(rs.getString(13));
+                pro.setDiastranscu(rs.getString(15));
+                pro.setTp2(rs.getString(11));
+                pro.setMsjestado(rs.getInt(12));
+                                       
                 vecPro.add(pro);
                 i++;
             }
@@ -2019,7 +2025,8 @@ public class registro
         Connection reg=myc.conexion();
         
         int i = 0;//select *,datediff(tiempo_proceso,hora_envio) from mensajes where emisor=1;
-        String sql="select *,TIMESTAMPDIFF(day,hora_envio,tiempo_proceso),TIMESTAMPDIFF(day,tiempo_proceso,tiempo_proceso2) from mensajes where receptor='"+abc+"'";
+        //tiempo proceso = a la fecha seleccionada a la entrega mientra que tiempo proceso 2 es la fecha con revocacion
+        String sql="select *,TIMESTAMPDIFF(day,now(),tiempo_proceso2),TIMESTAMPDIFF(day,hora_envio,tiempo_proceso2),TIMESTAMPDIFF(day,hora_envio,now()) from mensajes where receptor='"+abc+"'";
         try{
             PreparedStatement pst=reg.prepareStatement(sql);
             rs=pst.executeQuery();
@@ -2033,9 +2040,11 @@ public class registro
                 pro.setRevocaciones(rs.getInt(10));
                 pro.setHoraenvio(rs.getString(7));
                 pro.setHoraentrega(rs.getString(6));
-                pro.setDiasrevocacion(rs.getString(13));
-                pro.setTiemporest(rs.getString(12));
+                pro.setDiasrevocacion(rs.getString(14));
+                pro.setTiemporest(rs.getString(13));
                 pro.setTp2(rs.getString(11));
+                pro.setDiastranscu(rs.getString(15));
+                pro.setMsjestado(rs.getInt(12));
                         
                 vecPro.add(pro);
                 i++;
@@ -2158,7 +2167,24 @@ public class registro
              JOptionPane.showMessageDialog(null, "error de conexion "+e);
         }
     }
-   
+    
+   public void estadomensa(int parametro1)//update organizacion set estadoorg=2 where idOrganizacion=1
+    {
+        Conexion myc = new Conexion();
+        Connection reg=myc.conexion();//
+        String sql="update mensajes set estado=1 where idmensajes="+parametro1+"";
+        
+        try
+        {
+            PreparedStatement pst=reg.prepareStatement(sql);
+            pst.executeUpdate();
+            //JOptionPane.showMessageDialog(null,"La empresa Esta dada de baja");
+        }
+        catch(Exception e)
+        {
+             JOptionPane.showMessageDialog(null, "error de conexion "+e);
+        }
+    }
     public String getNombreEmpresa() {
         return NombreEmpresa;
     }
@@ -2990,6 +3016,22 @@ public class registro
 
     public void setTp2(String tp2) {
         this.tp2 = tp2;
+    }
+
+    public String getDiastranscu() {
+        return diastranscu;
+    }
+
+    public void setDiastranscu(String diastranscu) {
+        this.diastranscu = diastranscu;
+    }
+
+    public int getMsjestado() {
+        return msjestado;
+    }
+
+    public void setMsjestado(int msjestado) {
+        this.msjestado = msjestado;
     }
     
     public static void main(String args[])

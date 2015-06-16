@@ -50,11 +50,20 @@ public class ejemplo
              JOptionPane.showMessageDialog(null, "error de conexion "+e);
         }       
     }
+    public void porcentaje()
+    {
+        float a = 17;
+        float b = 17;
+        float c = 0;
+        c = a*100/b;
+        JOptionPane.showMessageDialog(null, c);
+    }
     
     public static void main(String args[])
     {
         ejemplo mye = new ejemplo ();
-        mye.buscarnodo(1);
+        //mye.buscarnodo(1);
         //mye.buscarnodopadre();
+        mye.porcentaje();
     }
 }

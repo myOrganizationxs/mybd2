@@ -4,6 +4,7 @@
     Author     : sergio
 --%>
 
+<%@page import="javax.swing.JOptionPane"%>
 <%@page import="java.util.Vector"%>
 <%@page import="modelo.registro"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,7 +14,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        
+        <style>th.barra{ width: 300px; }</style>
     </head>
     <body>
         <table class="table table-striped">
@@ -24,9 +25,8 @@
                     <th>Fecha y Hora de Envio</th>
                     <th>Fecha y Hora a cumplir</th>
                     <th>Fecha y Hora a despues de la revocacion</th>
-                    <th>Tiempo restante</th>
                     <th>Numero de revocaciones</th>
-                    <th>Dias añadidos</th>
+
                 </thead>
                 <tr>
                     <%     
@@ -39,7 +39,22 @@
                     <th><%=regis.get(i).getHoraenvio()%></th>
                     <th><%=regis.get(i).getHoraentrega()%></th>
                     <th><%=regis.get(i).getTp2()%></th>
-                    <th><%=regis.get(i).getTiemporest()%></th>
+                    <%
+                    float c;
+                    c=Float.parseFloat(regis.get(i).getDiastranscu())*100/Float.parseFloat(regis.get(i).getDiasrevocacion());
+                    if(String.valueOf(c)=="NaN")
+                    {
+                        c=0;
+                    }
+                    if(c>=101)
+                    {
+                        c=100;
+                    }
+                    //OptionPane.showMessageDialog(null,Float.parseFloat(regis.get(i).getDiastranscu())+"x 100 /"+Float.parseFloat(regis.get(i).getDiasrevocacion())+" "+c);
+                    
+                    
+                    
+                    %>
                     <%if(regis.get(i).getPromesa()==0){%>
                     <th><form action="Promesa" method="post">
                             <input type="hidden" value="<%=regis.get(i).getMensaje()%>" name="idmsg">
@@ -52,11 +67,55 @@
                             </form></th>
                     <%}%>
                     <%if(regis.get(i).getPromesa()==1){%>
-                    <th><%=regis.get(i).getRevocaciones()%></th>
-                    <th><%=regis.get(i).getDiasrevocacion()%></th>
-                     
+                    <th><%=regis.get(i).getRevocaciones()%></th>                   
                     <%if(regis.get(i).getRevocaciones()<=2){%>
                     
+                    
+                    <%
+                    if(regis.get(i).getMsjestado()==1)
+                    {%>
+                        <th class="barra"><div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-info" role="progressbar"
+                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                                style="width:100%">
+                                <span class="sr-only">80% completado (peligro / error)</span>
+                                </div>
+                        </div></th>   
+                    <%}
+                    else{
+                    if (c<=79)
+                    {%>
+                    <th class="barra"><div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-success" role="progressbar"
+                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                                style="width:<%=c%>%">
+                                <span class="sr-only">80% completado (peligro / error)</span>
+                                </div>
+                        </div></th>
+                        <%}%>
+                    <%if (c>=80 && c<=99)
+                    {%>
+                    <th class="barra"><div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-warning" role="progressbar"
+                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                                style="width:<%=c%>%">
+                                <span class="sr-only">80% completado (peligro / error)</span>
+                                </div>
+                        </div></th>
+                        <%}%>
+                    <%if (c==100)
+                    {%>
+                    <th class="barra"><div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-danger" role="progressbar"
+                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                                style="width:<%=c%>%">
+                                <span class="sr-only">80% completado (peligro / error)</span>
+                                </div>
+                        </div></th>
+                        <%}}%>
+                        
+                        
+                        
                     <th><form action="Posponer" method="post">
                             <input type="hidden" value="<%=regis.get(i).getMensaje()%>" name="idmsg">
                             <input type="hidden" value="<%=regis.get(i).getTp2()%>" name="tp2">
@@ -74,13 +133,57 @@
                     <%}
                     else
                     {%>
-                    <th>NO TIENES MAS REVOCACIONES</th>    
+                    
+                    <%
+                        if(regis.get(i).getMsjestado()==1)
+                    {%>
+                        <th class="barra"><div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-info" role="progressbar"
+                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                                style="width:100%">
+                                <span class="sr-only">80% completado (peligro / error)</span>
+                                </div>
+                        </div></th>   
                     <%}
+                    else{
+                        if (c<=79)
+                    {%>
+                    <th class="barra"><div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-success" role="progressbar"
+                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                                style="width:<%=c%>%">
+                                <span class="sr-only">80% completado (peligro / error)</span>
+                                </div>
+                        </div></th>
+                        <%}%>
+                    <%if (c>=80 && c<=99)
+                    {%>
+                    <th class="barra"><div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-warning" role="progressbar"
+                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                                style="width:<%=c%>%">
+                                <span class="sr-only">80% completado (peligro / error)</span>
+                                </div>
+                        </div></th>
+                        <%}%>
+                    <%if (c==100)
+                    {%>
+                    <th class="barra"><div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-danger" role="progressbar"
+                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                                style="width:<%=c%>%">
+                                <span class="sr-only">80% completado (peligro / error)</span>
+                                </div>
+                        </div></th>
+                        <%}%>
+                    <th>NO TIENES MAS REVOCACIONES</th>    
+                    <%}}
                     }%>
                     
                     <%if(regis.get(i).getPromesa()==2){%>                     
                     <th>rechazaste esta solicitud</th>
                     <%}%>
+                    
                     
                     </tr>
              <%}%>
