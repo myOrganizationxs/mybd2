@@ -76,7 +76,7 @@ public class AgregarEmpresa extends HttpServlet {
             JOptionPane.showMessageDialog(null,ced+" "+imgorg);
             registro reg = new registro();
             
-            reg.altaempresa(ced,imgorg);
+            reg.altaempresa(ced);
             response.sendRedirect("admininicio.jsp");
     }
 

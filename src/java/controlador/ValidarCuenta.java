@@ -57,8 +57,10 @@ public class ValidarCuenta extends HttpServlet {
             PreparedStatement pst=reg.prepareStatement(sql);
             rs=pst.executeQuery();
             //revisa si existe el usuario y contraseña pero no se fija en mayusculas y minusculas
+            JOptionPane.showMessageDialog(null,"llega aqui");
             if (rs.next()) 
             {
+                JOptionPane.showMessageDialog(null,"llega aqui 1");
                  myr.setNombre(rs.getString(4));
                  myr.setAp(rs.getString(3));
                  myr.setAm(rs.getString(2));
@@ -73,6 +75,7 @@ public class ValidarCuenta extends HttpServlet {
                  myr.setNodousu(rs.getInt(22));
                  
                 //Compara las cadenas de los usuario por que no lo compara mysql
+                 
                  if(myr.getUs().equals(request.getParameter("usuario")))
                  {
                      //Si es usuario o Admin
@@ -110,7 +113,7 @@ public class ValidarCuenta extends HttpServlet {
                          //en caso de error pasa a este que esta desactivada
                          else
                          {
-                             JOptionPane.showMessageDialog(null,"Tu cuenta No esta Disponible");
+                             JOptionPane.showMessageDialog(null,"Tu cuenta No esta Disponible ");
                              response.sendRedirect("index.jsp");
                          }
                     }
@@ -136,14 +139,14 @@ public class ValidarCuenta extends HttpServlet {
                  //muestra cadenas si son validas
                  else
                  {
-                     JOptionPane.showMessageDialog(null,"Usuario o Contraseña Incorrectos");
+                     JOptionPane.showMessageDialog(null,"Usuario o Contraseña Incorrectos cadenas invalidas");
                      response.sendRedirect("index.jsp");
                  }
             }
             //si no esta el usuario entra aqui
             else
             {
-                JOptionPane.showMessageDialog(null,"Usuario o Contraseña Incorrectos");
+                JOptionPane.showMessageDialog(null,"Usuario o Contraseña Incorrecto usuario entra aqui");
                 response.sendRedirect("index.jsp");
             }
         } 
