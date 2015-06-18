@@ -72,8 +72,8 @@ public class AgregarEmpresa extends HttpServlet {
         HttpSession sesion=request.getSession();
             
             String ced = String.valueOf(request.getParameter("Nombre"));
-            String imgorg = request.getParameter("imgorg").toUpperCase();
-            JOptionPane.showMessageDialog(null,ced+" "+imgorg);
+            //String imgorg = request.getParameter("imgorg").toUpperCase();
+            //JOptionPane.showMessageDialog(null,ced+" "+imgorg);
             registro reg = new registro();
             
             reg.altaempresa(ced);

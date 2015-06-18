@@ -2169,7 +2169,7 @@ public class registro
     {
         Conexion myc = new Conexion();
         Connection reg=myc.conexion();//
-        String sql="update mensajes set estado=1 where idmensajes="+parametro1+"";
+        String sql="update mensajes set estado_mensaje=1 where idmensajes="+parametro1+"";
         
         try
         {
