@@ -1961,7 +1961,7 @@ public class registro
         Connection reg=myc.conexion();
          ultimomen();
                         //insert into mensajes values(1,1,2,'ffdsd','null',null,0,0,1);
-        String sql="insert into mensajes values ("+ultimen+","+emisor+",'"+receptor+"','"+peticion+"','0','"+tiempoy+"',now(),null,"+emisor+",0,'"+tiempoy+"')";
+        String sql="insert into mensajes values ("+ultimen+","+emisor+",'"+receptor+"','"+peticion+"','0','"+tiempoy+"',now(),null,"+emisor+",0,'"+tiempoy+"',0)";
         
         try
         {
