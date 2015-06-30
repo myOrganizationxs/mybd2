@@ -878,6 +878,42 @@ function abrirvande() {
          <form>
             <input type="button" value="Mensajes recibidos" onclick="abrirvande()"/>
         </form>
+    
+    
+    <script type="text/javascript">
+function objetivos() { 
+    window.open('Objetivos.jsp?idorbita=<%=request.getParameter("idorbita")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
+} 
+</script> 
+    </script>
+
+         <form>
+            <input type="button" value="objetivos" onclick="objetivos()"/>
+        </form>
+    
+    <script type="text/javascript">
+function mision() { 
+    window.open('mision.jsp?idorbita=<%=request.getParameter("idorbita")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
+} 
+
+</script> 
+    </script>
+
+         <form>
+            <input type="button" value="mision" onclick="mision()"/>
+        </form>
+    <script type="text/javascript">
+    function vision() { 
+    window.open('vision.jsp?idorbita=<%=request.getParameter("idorbita")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
+} 
+
+</script> 
+    </script>
+
+         <form>
+            <input type="button" value="vision" onclick="vision()"/>
+        </form>
+    
 
 
         <footer>
