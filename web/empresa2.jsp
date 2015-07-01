@@ -10,8 +10,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <script src="js/bootstrap.min.js"></script>
 <script src="http://code.jquery.com/jquery.js"></script>
- 
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
     <%
         registro ddd = new registro();
@@ -878,6 +877,16 @@ function abrirvande() {
          <form>
             <input type="button" value="Mensajes recibidos" onclick="abrirvande()"/>
         </form>
+<script type="text/javascript">
+function peticion() { 
+    window.open('mensajescompromiso.jsp?idnodo=<%=request.getParameter("nodousu")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
+} 
+</script> 
+    </script>
+
+         <form>
+            <input type="button" value="Petición" onclick="peticion()"/>
+        </form>    
     
     
     <script type="text/javascript">

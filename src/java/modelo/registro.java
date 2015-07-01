@@ -2182,6 +2182,102 @@ public class registro
              JOptionPane.showMessageDialog(null, "error de conexion "+e);
         }
     }
+   //inicia el primer nodo de la ruta
+   public void inicioruta(int valor){//SELECT idnodo,idpadre,cargo,idusuario,nombre,apellido_paterno,apellido_materno FROM nodo,organizacion where Organizacion_idOrganizacion=1 and idOrganizacion=1 and idPadre=0 "
+       
+         
+        Conexion myc = new Conexion();
+        Connection reg=myc.conexion();  
+        int i = 0;
+        String sql="SELECT idNodo,idPadre,Cargo FROM nodo,organizacion where Organizacion_idOrganizacion="+valor+" and idOrganizacion="+valor+" and idPadre=0";
+        try{
+            PreparedStatement pst=reg.prepareStatement(sql);
+            rs=pst.executeQuery();
+            while(rs.next()){
+                
+                setIdnodo1(rs.getInt("idNodo"));               
+                setIdPadre(rs.getInt("idPadre"));
+                setPuesto(rs.getString("Cargo"));
+                System.out.println (rs.getInt (1));
+
+            }
+            // metodo para bbuscar el nombre  de la orbita buscarorbitaruta(1,1);
+        }catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(null,ex);
+        }
+    }
+   //crea la rama del arbol
+   public void creacionarbol(int valor1)
+   {
+       //este es el primer nodo con el que empezara a hacer el arbol
+       inicioruta(valor1);
+       getIdnodo1();
+       creararbol(getIdnodo1(),valor1);
+   }
+   public void creararbol(int a,int valor1)
+   {
+       recorreizquierda(a,valor1);
+   }
+   
+   public void recorreizquierda(int a,int valor){
+       
+         
+        Conexion myc = new Conexion();
+        Connection reg=myc.conexion();  
+        int i = 0;
+        String sql="SELECT idNodo FROM nodo,organizacion where Organizacion_idOrganizacion="+valor+" and idOrganizacion="+valor+" and idPadre="+a+"";
+        try{
+            PreparedStatement pst=reg.prepareStatement(sql);
+            rs=pst.executeQuery();
+            while(rs.next()){
+                
+                setIdnodo1(rs.getInt("idNodo"));               
+                System.out.println (rs.getInt (1));
+                recorreizquierda(getIdnodo1(),valor);
+
+            }
+            // metodo para bbuscar el nombre  de la orbita buscarorbitaruta(1,1);
+        }catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(null,ex);
+        }
+    }
+   
+    public static Vector<registro> buscarespecificarnodoruta(int valor,int valor1){//SELECT idNodo,idPadre,Cargo,idusuario,nombre_usu,apellido_paterno,apellido_materno FROM nodo,organizacion,usuario where Organizacion_idOrganizacion=1 and idOrganizacion=1 and idPadre=1 and idnodo = nodo_idnodo;    
+         Vector<registro> vecPro=new Vector<registro>();
+        Conexion myc = new Conexion();
+        Connection reg=myc.conexion();
+        
+        int i = 0;
+        String sql="SELECT idNodo,idPadre,Cargo FROM nodo,organizacion where Organizacion_idOrganizacion="+valor+" and idOrganizacion="+valor+" and idPadre="+valor1+"";
+        try{
+            PreparedStatement pst=reg.prepareStatement(sql);
+            rs=pst.executeQuery();
+            while(rs.next()){
+                
+                
+                registro pro=new registro();
+                //JOptionPane.showMessageDialog(null,rs.getInt("idNodo"));
+                pro.setIdNodo(rs.getInt("idNodo"));
+                pro.setIdPadre(rs.getInt("idPadre"));
+                pro.setPuesto(rs.getString("Cargo"));
+                vecPro.add(pro);
+                i++;
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+            try{
+                rs.close();
+                pr.close();
+            }catch(Exception ex){
+
+            }
+        }
+        return vecPro;
+    }
+   
     public String getNombreEmpresa() {
         return NombreEmpresa;
     }
@@ -3043,6 +3139,8 @@ public class registro
         //myr.buscarnodo(24);
         //myr.totaldenodos(1,1);
         //myr.CrearMensaje(1,2,"null","null");
+        myr.creacionarbol(1);
+        
         
     }    
 }

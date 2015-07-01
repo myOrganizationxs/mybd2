@@ -44,7 +44,7 @@ public class ValidarCuenta extends HttpServlet {
             //JOptionPane.showMessageDialog(null,"cuenta");
         Conexion myc = new Conexion();
         registro myr = new registro();
-        Connection reg=myc.conexion();//Select * from usuario,cuenta,organizacion,nodo where usuario='12345' and Contraseña='12345' and cuenta_idcuenta=idcuenta and idnodo=nodo_idnodo and idorganizacion=organizacion_idorganizacion";
+        Connection reg=myc.conexion();//Select * from usuario,cuenta,organizacion,nodo where usuario='123456' and Contraseña='123456' and cuenta_idcuenta=idcuenta and idnodo=nodo_idnodo and idorganizacion=organizacion_idorganizacion";
         String sql="Select * from usuario,cuenta,organizacion,nodo where usuario='"+request.getParameter("usuario")+"' and Contraseña='"+request.getParameter("contra")+"' and cuenta_idcuenta=idcuenta and idnodo=nodo_idnodo and idorganizacion=organizacion_idorganizacion";
         //1 idusuario
         //16 tipo
