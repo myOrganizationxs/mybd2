@@ -11,7 +11,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="http://code.jquery.com/jquery.js"></script>
  <!DOCTYPE html>
-<html>
+ <html>
     <%
         registro ddd = new registro();
         session.setAttribute("nombreorg", request.getParameter("nombreorg"));
@@ -780,9 +780,9 @@ function rotar() {
 </script>
     
 
-              <aside style=" position:static; display: inline-block; vertical-align: top; float: right; margin-right: 50px;" >
+              <aside style=" position:static;  margin-right: 50px;" >
                    
-                   <div class="col-md-3" style=" display:inline-block; border:5px  black; background:black; float: right; position:static; border-radius: 10px; height: 453px;width: 275px;  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); overflow: auto !important; margin-right:0px;">
+                   <div class="col-md-3" style="  border:5px  black;  background:black; float: right; position:static; border-radius: 10px; height: 453px;width: 275px;  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); overflow: auto !important; margin-right:0px;margin-top:-452px">
 
                       <%--                 
 
