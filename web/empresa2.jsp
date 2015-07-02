@@ -127,7 +127,7 @@
   width: 60px;
   height: 60px;
   position: static;
-  top: -79px;
+  top: -180px;
   left: -1px;
   z-index: 4;
 }
@@ -157,13 +157,13 @@
         <div align="center">
         <!--<img src="images/B-button.png" style="max-width: 75px; float: left;">-->
         <h1 id="trigger" style="display: inline-block; vertical-align: top;"><%=request.getParameter("nombreorg")%></h1>
-        <div class="globo" style="display: inline-block;  margin: 0; width:275px; background:black; box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); border-radius: 10px; float: right; margin-right: 50px; position:static;"><div class="frontal"></div><div class="mapfront"></div><div class="mapback"></div><div class="back"></div></div>
+        <div class="globo" style="display: inline-block;  margin: 0; width:275px;  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); border-radius: 10px; float: right; margin-right: 50px; position:static; background:url(images/nebula-xneg.png)""><div class="frontal"></div><div class="mapfront"></div><div class="mapback"></div><div class="back"></div></div>
         </div>  
         
-        <nav class="navbar navbar-inverse" style="display:inline-block; margin:0; width:855px; height:0%; background: black; box-shadow:0 0 10px 2px rgba(0, 0, 0, .5); border-radius: 10px 10px 0px 0px; position:static; margin-left:1.4em; ">
-            <div class="navbar-header-inverse" style="position:static">
+        <nav class="navbar navbar-inverse" style="display:inline-block; margin:0; width:855px; height:0%; background: black; box-shadow:0 0 10px 2px rgba(0, 0, 0, .5); border-radius: 10px 10px 0px 0px; position:static; margin-left:1.4em; background:url(images/nebula-xneg.png) ">
+            <div class="navbar-header-inverse" style="position:static; background:url(images/nebula-xneg.png)">
             <ul class=navbar-toggle" data-toggle="collapse"
-                            data-target=".navbar-ex1-collapse" >       
+                            data-target=".navbar-ex1-collapse"style="background:url(images/nebula-xneg.png)" >       
         <%
                 //ruta del nodo en el que se esta consultando
             ddd.setNodo5(Integer.parseInt(request.getParameter("idnodo")));
@@ -212,7 +212,7 @@
                 conteo++;
             }
         %>
-    <ol class="breadcrumb navbar-header-inverse" style=" position:static; margin-left: 0em; background:black; border-radius:50px;" >
+    <ol class="breadcrumb navbar-header-inverse" style=" position:static; margin-left: 0em; border-radius:50px; background:url(images/nebula-xneg.png)" >
         <%
                 //ruta del nodo en el que se esta consultando           
             while (guardaco >= 0) {
@@ -239,7 +239,7 @@
 <style> 
     
         canvas {
-	background: black;
+	background:url(images/nebula-xneg.png);
 	/*margin-top: 15% !important;*/
 	width: 855px !important;
         height: 65% !important; 
@@ -782,7 +782,7 @@ function rotar() {
 
               <aside style=" position:static;  margin-right: 50px;" >
                    
-                   <div class="col-md-3" style="  border:5px  black;  background:black; float: right; position:static; border-radius: 10px; height: 453px;width: 275px;  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); overflow: auto !important; margin-right:0px;margin-top:-452px">
+                   <div  class="col-md-3" style="  border:5px  black;   float: right; position:static; border-radius: 10px; height: 453px; width:275px;  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); overflow: auto !important; margin-right:0px;margin-top:-452px;background:url(images/nebula-xneg.png)" ">
 
                       <%--                 
 

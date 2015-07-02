@@ -25,7 +25,7 @@
       
     </head>
     <h1>Mis Organizaciones</h1>
-    <body>
+    <body style=" background:url(images/nebula-xneg.png)" class="img-responsive">
     <h3>Organizaciones Activas</h3>
         <table class="table table-striped">
             <thead>
