@@ -43,7 +43,7 @@
 
     <body>
         
-                <div id="infoBox" title="Foto">
+                <div id="infoBox" title="Foto" style="display: none">
 	<figure><img src="images/Imagenbart.jpg"></figure>
         </div>
 <style>
@@ -923,8 +923,38 @@ function mision() {
             <input type="button" value="vision" onclick="vision()"/>
         </form>
     
-
-
+    <!--<a id="botonImagen" href="javascript:;imagen()">Boton</a> -->
+    <div id="boton" class="botone">boton</div>
+    <div id="ContImagen">
+        <img id="imagenEjemplo" src="images/SquareRed.png" width="100" height="100" style="display:none" />
+    </div>
+    <script>
+        
+        $(document).ready(function(){
+            $("#boton").click(function(){
+                imagen();
+                $("#ContImagen").append("<div id='imagenCerrar' class='botone'>Cerrar</div>");
+                $("#imagenCerrar").click(function(){
+                         $("#imagenEjemplo").css("display","none");
+                         $("#imagenCerrar").remove();
+                });
+            });
+            
+        });        
+        function imagen(){
+            $("Canvas").append("<div style='position:fix; color:#00f; display:block; width:100px;'><ul><li>Mision</li><li>Vision</li><li>Objetivos</li></ul></div>");
+            $("#imagenEjemplo").css("display","block");
+        }
+        </script>
+        <style>
+            .botone{
+                color:#f00;
+                cursor:pointer;
+            }
+            .botone:hover:hover{
+                color: #ccc;
+            }
+        </style>
         <footer>
             <div style=" position:static; margin:0; background:black; width:97%; height:90px; box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); border-radius:10px; margin-bottom: 30px;">
                 
