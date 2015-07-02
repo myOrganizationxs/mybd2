@@ -21,7 +21,7 @@ public class Conexion
        try {
            //cargar nuestro driver
            Class.forName("com.mysql.jdbc.Driver");
-             con=DriverManager.getConnection("jdbc:mysql://localhost/elipso","root","123456");
+             con=DriverManager.getConnection("jdbc:mysql://localhost/elipso","sergio","laclave");
            //JOptionPane.showMessageDialog(null, "conexion establecida");
        } catch (ClassNotFoundException | SQLException e) {
            System.out.println("error de conexion");
