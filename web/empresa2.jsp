@@ -10,6 +10,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <script src="js/bootstrap.min.js"></script>
 <script src="http://code.jquery.com/jquery.js"></script>
+
  <!DOCTYPE html>
  <html>
     <%
@@ -28,13 +29,15 @@
 
     %>
     <head>
-          <t:genericpage>
+      <t:genericpage>
             <jsp:attribute name="header">
 
 
             </jsp:attribute>
 
-        </t:genericpage>
+      </t:genericpage>  
+        
+          
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
         <title><%=request.getParameter("nombreorg")%></title>
@@ -236,6 +239,45 @@
             </div>  
     </nav>
     <section>
+        <div style="position:absolute; z-index:1; background: url(images/nebula-xneg.png); width: 100px !important;height: 40% !important; margin-left:20px; ">
+           <script type="text/javascript">
+function mision() { 
+    window.open('mision.jsp?idorbita=<%=request.getParameter("idorbita")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
+} 
+
+
+    function vision() { 
+    window.open('vision.jsp?idorbita=<%=request.getParameter("idorbita")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
+} 
+
+function objetivos() { 
+    window.open('Objetivos.jsp?idorbita=<%=request.getParameter("idorbita")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
+} 
+</script> 
+   
+            <ul>
+                <li style=" white-space:nowrap; color:gray;">
+                   <form>
+                     <input style="background:url(images/nebula-xneg.png); border:none;"type="submit" value="Mision" onclick="mision()"/>
+                   </form>
+                </li>
+                
+                <li style="white-space:nowrap; color: gray;">
+                     
+                   <form>
+                     <input style="background:url(images/nebula-xneg.png); border:none;"type="submit" value="vision" onclick="vision()"/>
+                   </form>
+                </li>
+                
+                <li style="white-space:nowrap; color: gray;">
+                   <form>
+                     <input style="background:url(images/nebula-xneg.png); border:none;"type="button" value="objetivos" onclick="objetivos()"/>
+                   </form>
+                </li>
+                
+            </ul>
+            
+        </div>
 <style> 
     
         canvas {
@@ -246,8 +288,10 @@
         position:static;
 	margin-left: 20px;
         border-radius: 0px 0px 10px 10px;
-        
         box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5);
+        
+        
+        }
         
         
 }
@@ -882,46 +926,19 @@ function peticion() {
     window.open('mensajescompromiso.jsp?idnodo=<%=request.getParameter("nodousu")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
 } 
 </script> 
-    </script>
+    
 
          <form>
             <input type="button" value="Petición" onclick="peticion()"/>
         </form>    
     
     
-    <script type="text/javascript">
-function objetivos() { 
-    window.open('Objetivos.jsp?idorbita=<%=request.getParameter("idorbita")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
-} 
-</script> 
-    </script>
-
-         <form>
-            <input type="button" value="objetivos" onclick="objetivos()"/>
-        </form>
     
-    <script type="text/javascript">
-function mision() { 
-    window.open('mision.jsp?idorbita=<%=request.getParameter("idorbita")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
-} 
+    
+    
 
-</script> 
-    </script>
-
-         <form>
-            <input type="button" value="mision" onclick="mision()"/>
-        </form>
-    <script type="text/javascript">
-    function vision() { 
-    window.open('vision.jsp?idorbita=<%=request.getParameter("idorbita")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
-} 
-
-</script> 
-    </script>
-
-         <form>
-            <input type="button" value="vision" onclick="vision()"/>
-        </form>
+         
+    
     
     <!--<a id="botonImagen" href="javascript:;imagen()">Boton</a> -->
     <div id="boton" class="botone">boton</div>
@@ -946,6 +963,8 @@ function mision() {
             $("#imagenEjemplo").css("display","block");
         }
         </script>
+        
+        
         <style>
             .botone{
                 color:#f00;
