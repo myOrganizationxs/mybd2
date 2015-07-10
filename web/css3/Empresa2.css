@@ -1,0 +1,158 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10-jul-2015, 12:24:03
+    Author     : jebus
+*/
+
+.globo {
+  width: 100px;
+  height: 100px;
+  position: static;
+  margin-left: 65em;
+}
+.frontal {
+  width: 100px;
+  height: 100px;
+  background: url(http://1.bp.blogspot.com/-R7NM2HBq--Q/UesCwsosv3I/AAAAAAAAKrs/ZZm2CMlqVWs/s1600/1.png);
+  background-size: 100px 100px;
+  z-index: 5;
+  position: static;
+  top: 0;
+  left: 0;
+}
+.back {
+  width: 100px;
+  height: 100px;
+  background: url(http://1.bp.blogspot.com/-Hke9nBhL3Gc/UesDBMdQypI/AAAAAAAAKr0/4d9J8v5i58o/s1600/2.png);
+  background-size: 100px 100px;
+  position: relative;
+  top: -219px;
+  left: -1px;
+  z-index: 2;
+}
+.mapfront {
+  border-radius: 300px;
+  width: 83px;
+  height: 59px;
+  position: relative;
+  top: -79px;
+  left: -1px;
+  z-index: 4;
+}
+
+.mapback {
+  border-radius: 300px;
+  width: 60px;
+  height: 60px;
+  position: static;
+  top: -180px;
+  left: -1px;
+  z-index: 4;
+}
+.mapfront {
+  background: url(http://1.bp.blogspot.com/-M5AZ_16w8b4/UesDQ6r3miI/AAAAAAAAKr8/Sj0Tu25SgWA/s1600/3.png) repeat-x;
+  -webkit-animation: mapfront_spin 15s linear infinite;
+  animation: mapfront_spin 35s linear infinite;
+  background-size: 186px 67px;
+}
+.mapback {
+  background: url(http://2.bp.blogspot.com/-PEUhx5zxLcg/UesDeRIwkmI/AAAAAAAAKsE/XvusGF7_Omc/s1600/4.png) repeat-x;
+  position: static;
+  -webkit-animation: mapback_spin 15s linear infinite;
+  animation: mapback_spin 35s linear infinite;
+  background-size: 100px 100px;
+  
+}
+ 
+        
+        
+        .botone{
+                color:#f00;
+                cursor:pointer;
+            }
+            .botone:hover:hover{
+                color: #ccc;
+            }
+        
+            #infoBox{
+                display: none;
+            }        
+
+        
+            #trigger{
+                display: inline-block; 
+                vertical-align: top;
+            }
+            
+            .globo{
+                display: inline-block;  
+                margin: 0; 
+                width:275px;  
+                box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); 
+                border-radius: 10px; 
+                float: right; 
+                margin-right: 50px; 
+                position:static; 
+               
+            }
+            
+            #interiorCanvas{
+                position:absolute; 
+                z-index:1; 
+                background: url(images/nebula-xneg.png); 
+                width: 100px !important;
+                height: 40% !important; 
+                margin-left:20px;
+            }
+            
+            #ListaCanvas{
+                position:bot; 
+                z-index: 0;
+            }
+            
+            .liMVO{
+                z-index: 0;
+                white-space:nowrap; 
+                color: gray;
+            }
+            
+            .btnMVO{
+                z-index: 0;
+                background:url(images/nebula-xneg.png); 
+                border:none;
+            }
+            
+            #aside{
+                position:static;  
+                margin-right: 50px;
+            }
+            
+            #rutadenav{
+                border:5px  black;   
+                float: right; 
+                position:static; 
+                border-radius: 10px; 
+                height: 453px; 
+                width:275px; 
+                box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5);
+                overflow: auto !important; 
+                margin-right:0px;
+                margin-top:-452px;
+                
+            }
+            
+            #ularbol{
+                color:gray;
+            }
+            
+            .liarbol{
+                white-space:nowrap; 
+                color:gray;
+            }
+            #atree{
+                color:gray;
+            }

@@ -3,8 +3,10 @@
 <%@attribute name="footer" fragment="true" %>
 
 <script src="js/sweetalert.min.js"></script>
+
 <link rel="stylesheet" href="js/sweetalert.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
+
 
 <!DOCTYPE html>
 <html>
@@ -13,6 +15,7 @@
         <div id="pageheader">
 
             <jsp:invoke fragment="header"/>
+            
 
             <nav class="navbar navbar-inverse" style="float:top; background: black !important; box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5);" role="navigation">
                 <div class="navbar-header-inverse">
@@ -58,6 +61,8 @@
                   {%>
                    <a class="navbar-brand" href="index.jsp">Iniciar Sesión</a>
                    <%}%>
+                   
+                   <a class="navbar-brand "href="#"style="float:right;"><span class="badge glyphicon glyphicon-envelope">33</span></a>
                 </div>
             </nav>
         </div>
