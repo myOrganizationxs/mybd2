@@ -62,16 +62,12 @@
                    <a class="navbar-brand" href="index.jsp">Iniciar Sesión</a>
                    <%}%>
                    
-                   <a class="navbar-brand "href="#"style="float:right;"><span class="badge glyphicon glyphicon-envelope">33</span></a>
+                   <a class="navbar-brand "href="#"style="float:right;">Mensajes<span class="badge ">33</span></a>
                 </div>
             </nav>
         </div>
-        <div id="body">
-            <jsp:doBody/>
-        </div>
-        <div id="pagefooter">
-            <jsp:invoke fragment="footer"/>
-        </div>
+       
+        
     </body>
 
 </html>

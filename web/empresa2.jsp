@@ -13,7 +13,9 @@ Document   : empresa
  <html>
      
 
-    <%
+    
+    <head>
+        <%
         registro ddd = new registro();
         session.setAttribute("nombreorg", request.getParameter("nombreorg"));
         session.setAttribute("idnodo", Integer.parseInt(request.getParameter("idnodo")));
@@ -28,7 +30,6 @@ Document   : empresa
         int variable = 0;
 
     %>
-    <head>
         <script src="js/bootstrap.min.js"></script>
         <script src="http://code.jquery.com/jquery.js"></script>
         <link rel=stylesheet href="srcs/css/jquery-ui.css" />
@@ -92,18 +93,21 @@ canvas {
 	background:url(images/nebula-xneg.png);
 	/*margin-top: 15% !important;*/
 	width: 855px !important;
-        height: 65% !important; 
-        position:static;
+        height: 450px !important; 
+        position:relative;
 	margin-left: 20px;
         border-radius: 0px 0px 10px 10px;
         box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5);
+        z-index:1;
         
         
         }
+         
+
         </style>
     </head>
 
-    <body>
+    <body style="background:white;">
         
         <div id="infoBox" title="Foto" >
 	<figure><img src="images/Imagenbart.jpg"></figure>
@@ -116,22 +120,33 @@ canvas {
         <script>
                 swal({title: "Bienvenido a <%=request.getParameter("nombreorg")%>", text: "", timer: 2000, showConfirmButton: false});
         </script>
-       
-        <div align="center">
-        <!--<img src="images/B-button.png" style="max-width: 75px; float: left;">-->
-        <h1 id="trigger"><%=request.getParameter("nombreorg")%></h1>
-        <div class="globo" style=" background:url(images/nebula-xneg.png)">
-            <div class="frontal"></div>
-            <div class="mapfront"></div>
-            <div class="mapback"></div>
-            <div class="back"></div>
-                
-        </div>
-        </div>  
         
-        <nav class="navbar navbar-inverse" style=" z-index: -1;display:inline-block; margin:0; width:855px; height:0%; background: black; box-shadow:0 0 10px 2px rgba(0, 0, 0, .5); border-radius: 10px 10px 0px 0px; position:static; margin-left:1.4em; background:url(images/nebula-xneg.png) ">
-            <div class="navbar-header-inverse" style="z-index: -1;position:static; background:url(images/nebula-xneg.png)">
-            <ul class="navbar-toggle data-toggle collapse data-target navbar-ex1-collapse" style="z-index: -1;background:url(images/nebula-xneg.png)">
+        <div id="cabecera">
+            <div id="titulo" align="center">
+        <!--<img src="images/B-button.png" style="max-width: 75px; float: left;">-->
+                <h1 id="trigger"><%=request.getParameter("nombreorg")%></h1>
+            </div> 
+        
+            <div class="globo" style="background:url(images/nebula-xneg.png);">
+                <div class="frontal"></div>
+                <div class="mapfront"></div>
+                <div class="mapback"></div>
+                <div class="back"></div>
+                
+            </div>
+            
+            <div id="ruta" style="background:url(images/nebula-xneg.png); ">
+                
+            </div>
+        </div>
+            <!--<div id="bar" style="background:url(images/nebula-xneg.png)">
+               
+           
+        
+        
+        
+            
+            <ul  style="z-index: -1;background:url(images/nebula-xneg.png)">
                
         <%
                 //ruta del nodo en el que se esta consultando
@@ -181,7 +196,7 @@ canvas {
                 conteo++;
             }
         %>
-      </ul>   
+       </ul> 
   <ol class="breadcrumb navbar-header-inverse" style="z-index:-1; position:static; margin-left:0em; border-radius:50px; background:url(images/nebula-xneg.png)">  
         <%
                 //ruta del nodo en el que se esta consultando           
@@ -203,12 +218,10 @@ canvas {
             }
             }
         %>
-  </ol>   
-   
-            </div>  
-    </nav>
-    <section>
-        <div id="interiorCanvas">
+  </ol>  
+
+   </div> -->
+    <div id="interiorCanvas">
            <script type="text/javascript">
 function mision() { 
     window.open('mision.jsp?idorbita=<%=request.getParameter("idorbita")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
@@ -247,8 +260,36 @@ function objetivos() {
             </ul>
             
         </div>
+        
+        <div id="nomdepa">
+            
+            <h3  align="center">Direccion General</h3>
+        
+        </div>
+        <ul id="ListaCanvas2">
+                <li class="liMVO">
+                   <form>
+                     <input class="btnMVO" type="submit" value="Perfil Cerebral" onclick="mision()"/>
+                   </form>
+                </li>
+                
+                <li class="liMVO">
+                     
+                   <form>
+                     <input class="btnMVO"  type="submit" value="el otro" onclick="vision()"/>
+                   </form>
+                </li>
+                
+        </ul>
 
-    </section>    
+       
+       
+            
+
+    
+    
+        
+        
 <script src="srcs/js/Three.js"></script>
 <script src="srcs/js/Detector.js"></script>
 <script src="srcs/js/Stats.js"></script>
@@ -770,11 +811,24 @@ function rotar() {
 // code here
 }
 </script>
-    
 
-              <aside id="aside">
+
+
+
+              
                    
-                   <div  class="col-md-3" id="rutadenav" style="background:url(images/nebula-xneg.png)">
+                   <div style="background:url(images/nebula-xneg.png);
+                   
+                float: right;                
+                border-radius: 10px; 
+                height: 450px; 
+                width:285px; 
+                box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5);
+                margin-top: 0px;
+                margin-right:30px;
+               
+                
+            ">
 
                       <%--                 
 <!--
@@ -840,7 +894,10 @@ while(abb>=0)
 
 </ul>           
                    </div>
-               </aside> 
+
+                
+
+<footer>
 <script type="text/javascript">
 function abrir() { 
     window.open('mensajes.jsp?idnodo=<%=request.getParameter("nodousu")%>','',' toolbar=1, scrollbars=1, location=1, statusbar=1, menubar=1, resizable=0, width=400, height=300, left = 312, top = 234 ') ; 
@@ -848,7 +905,7 @@ function abrir() {
 </script> 
     
          <form>
-            <input type="button" value="Enviar mensaje" onclick="abrir()"/>
+            <input style="float:left; margin-left: 20px;" type="button" value="Enviar mensaje" onclick="abrir()"/>
         </form>
     <script type="text/javascript">
 function abrirmen() { 
@@ -858,7 +915,7 @@ function abrirmen() {
     
 
          <form>
-            <input type="button" value="Mis mensajes" onclick="abrirmen()"/>
+            <input style="float:left; margin-left: 20px;" type="button" value="Mis mensajes" onclick="abrirmen()"/>
         </form>
 <script type="text/javascript">
 function abrirvande() { 
@@ -867,7 +924,7 @@ function abrirvande() {
 </script> 
    
          <form>
-            <input type="button" value="Mensajes recibidos" onclick="abrirvande()"/>
+            <input style="float:left; margin-left: 20px;" type="button" value="Mensajes recibidos" onclick="abrirvande()"/>
         </form>
 <script type="text/javascript">
 function peticion() { 
@@ -877,14 +934,14 @@ function peticion() {
     
 
          <form>
-            <input type="button" value="Petición" onclick="peticion()"/>
+            <input style="float:left; margin-left: 20px;" type="button" value="Petición" onclick="peticion()"/>
         </form>   
     
 
          
     
     
-    <!--<a id="botonImagen" href="javascript:;imagen()">Boton</a> -->
+    <!--<a id="botonImagen" href="javascript:;imagen()">Boton</a>
     <div id="boton" class="botone">boton</div>
     <div id="ContImagen">
         <img id="imagenEjemplo" src="images/SquareRed.png" width="100" height="100" style="display:none" />
@@ -907,11 +964,10 @@ function peticion() {
             $("#imagenEjemplo").css("display","block");
         }
         </script>   
-
-        <footer>
-            <div style=" position:static; margin:0; background:black; width:97%; height:90px; box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5); border-radius:10px; margin-bottom: 30px;">
-                <h1>Anuncios</h1>                           
-            </div>
+-->
+        
+            
         </footer>
+       
     </body>
 </html>
