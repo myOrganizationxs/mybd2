@@ -123,7 +123,7 @@ canvas {
         
         <div id="cabecera">
             <div id="titulo" align="center">
-        <!--<img src="images/B-button.png" style="max-width: 75px; float: left;">-->
+        <!--<img src="images/B-button.png" style="max-width: 75px; float: left;"-->
                 <h1 id="trigger"><%=request.getParameter("nombreorg")%></h1>
             </div> 
         
